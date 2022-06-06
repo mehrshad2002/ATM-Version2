@@ -20,7 +20,7 @@ namespace NewATM
             io.Print("Enter Your CardNumber : ");
             string NumberCard = io.Get();
             io.Print("Enter Password");
-            string Password = io.Get();
+            string Password = io.Get(); 
 
             //Validation from Command
             bool numbercardFlag = command.CallValidation( NumberCard , Password );
