@@ -61,10 +61,10 @@ namespace NewATM
                     int IntMoneyWantVal = Convert.ToInt32(MoneyWantVal);
                     if ( NowMoney > IntMoneyWantVal)
                     {
-                        Bank bank = new Bank();
+                        WriteRead wr = new WriteRead();
                         int SumMoney = NowMoney - IntMoneyWantVal;
                         User.Money = Convert.ToString(SumMoney);
-                        bank.SaveUsers(UserList);
+                        wr.SaveUsers(UserList);
                         return true;
 
                     }
@@ -88,13 +88,13 @@ namespace NewATM
             {
                 if( number == User.NumberCard)
                 {
-                    Bank bank = new Bank();
+                    WriteRead wr = new WriteRead();
                     int NowMoney = Convert.ToInt32(User.Money);
                     int IntTradeMoney = Convert.ToInt32(TradeMoney);
                     if ( NowMoney > IntTradeMoney)
                     {
                         User.Money = Convert.ToString(NowMoney - IntTradeMoney);
-                        bank.SaveUsers(UserList);
+                        wr.SaveUsers(UserList);
                         Falg1 = 1;
                     }
                     
@@ -116,12 +116,12 @@ namespace NewATM
                 {
                     if(secendNumberCard == User.NumberCard)
                     {
-                        Bank bank = new Bank();
+                        WriteRead wr = new WriteRead();
                         int SumMoney = Convert.ToInt32(User.Money);
                         int IntTradeMoney = Convert.ToInt32(TradeMoney);
                         SumMoney += IntTradeMoney;
                         User.Money = Convert.ToString(SumMoney);
-                        bank.SaveUsers(UserList);
+                        wr.SaveUsers(UserList);
                         return true;
                     }
                 }

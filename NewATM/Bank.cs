@@ -15,11 +15,12 @@ namespace NewATM
             bool FileExist = File.Exists("../../../JsonFile/UserData/UserInfo.json");
             if( FileExist == false)
             {
+                WriteRead wr = new WriteRead(); 
                 var bankList = new List<UserAccount>();
                 bankList.Add(new UserAccount( "Mehrshad", "6104123443210987", "1234", "1000"));
                 bankList.Add(new UserAccount("Aria", "6104123443216576", "0000", "300"));
                 bankList.Add(new UserAccount("Bahar", "6104123447813245", "4554", "700"));
-                SaveUsers(bankList);
+                wr.SaveUsers(bankList);
             }
         }
 
@@ -44,16 +45,16 @@ namespace NewATM
 
         }
 
-        public void SaveJson(List<UserAccount> data , string path)
-        {
+        //public void SaveJson(List<UserAccount> data , string path)
+        //{
 
-            string jsonString = JsonConvert.SerializeObject(data, Formatting.Indented);
-            File.WriteAllText(path, jsonString);
-        }
+        //    string jsonString = JsonConvert.SerializeObject(data, Formatting.Indented);
+        //    File.WriteAllText(path, jsonString);
+        //}
 
-        public void SaveUsers(List<UserAccount> data)
-        {
-            SaveJson(data, "../../../JsonFile/UserData/UserInfo.json");
-        }
+        //public void SaveUsers(List<UserAccount> data)
+        //{
+        //    SaveJson(data, "../../../JsonFile/UserData/UserInfo.json");
+        //}
     }
 }
